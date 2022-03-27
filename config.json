@@ -1,0 +1,19 @@
+{
+	"description": "log stdout/stderr to separate files",
+	"documentation": "-",
+	"entrypoint": ["/usr/bin/docker-log-driver"],
+	"interface": {
+		"types": ["docker.logdriver/1.0"],
+		"socket": "logger.sock"
+	},
+	"mounts": [
+		{
+			"destination": "/data/output",
+			"type": "bind",
+			"source": "/data/output",
+			"options": ["rbind","rw"]
+		}
+	]
+}
+
+

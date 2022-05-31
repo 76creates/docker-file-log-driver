@@ -67,7 +67,9 @@ func (d *driver) StartLogging(file string, logCtx logger.Info) error {
 	}
 
 	logDir := baseLogDir + "/" + logCtx.ContainerID + "/"
-	os.MkdirAll(logDir, 0660)
+	if err := os.MkdirAll(logDir, 0760); err != nil {
+		return err
+	}
 
 	stdErrFile := logDir + "stderr"
 	stdErr, err := loggerutils.NewLogFile(stdErrFile, capval, maxFiles, compress, marshalFunc, decodeFunc, 0640, getTailReader)

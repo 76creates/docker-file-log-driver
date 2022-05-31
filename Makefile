@@ -1,5 +1,5 @@
 # make version read latest git tag
-VERSION = 1
+VERSION = 4
 
 .PHONY: all
 all: mod build
@@ -15,6 +15,9 @@ build:
 
 .PHONY: plugin
 plugin:
+	# cleanup
+	rm -rf ./rootfs
+	rm -f container_fs.tar
 	# build image
 	docker build -t file-log-driver:v${VERSION} .
 	# create container to harness root fs from && export filesystem

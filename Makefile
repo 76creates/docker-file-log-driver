@@ -1,5 +1,5 @@
 # make version read latest git tag
-VERSION = 4
+VERSION = v1.0
 
 .PHONY: all
 all: mod build

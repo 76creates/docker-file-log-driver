@@ -10,7 +10,7 @@
 		{
 			"destination": "/data/output",
 			"type": "bind",
-			"source": "/data/output",
+			"source": "/path/to/your/local/directory",
 			"options": ["rbind","rw"]
 		}
 	]
